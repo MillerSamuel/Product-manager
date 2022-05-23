@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"
 import { useState, useEffect } from "react"
-
+import {Link} from "react-router-dom"
 const Products = () => {
 
     const [allProducts, setAllProducts] = useState([])
@@ -24,13 +24,7 @@ const Products = () => {
             {allProducts.map((prod, i) => {
                 return (
                     <div className="d-flex justify-content-center">
-                        <div className="card m-2" style={{width: '18rem'}}>
-                            <div className="card-body">
-                                <h5 className="card-title">{prod.title}</h5>
-                                <h6 className="card-subtitle mb-2 text-muted">${prod.price}</h6>
-                                <p className="card-text">{prod.description}</p>
-                            </div>
-                        </div>
+                                <h2 className="m-2"><Link to={`/${prod._id}`}>{prod.title}</Link></h2>
                     </div>
                 )
             })}

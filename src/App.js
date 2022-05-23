@@ -5,18 +5,19 @@ import {
 } from "react-router-dom"
 import Products from './components/Products';
 import Form from './components/Form';
+import OneProduct from './components/OneProduct';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App container">
-        <h1>Hello</h1>
         <Switch>
-          <Route exact path="/all">
-            <Products></Products>
-          </Route>
           <Route exact path="/">
             <Form></Form>
+            <Products></Products>
+          </Route>
+          <Route exact path="/:_id">
+            <OneProduct></OneProduct>
           </Route>
         </Switch>
       </div>
