@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 
-const Form=()=>{
-
+const Form=(props)=>{
     const [title,setTitle]=useState("");
     const [price,setPrice]=useState(0);
     const [description,setDescription]=useState("");
@@ -22,6 +21,7 @@ const Form=()=>{
                     setTitle("")
                     setPrice("")
                     setDescription("")
+                    props.setFormToggle(!props.formToggle);
                 }
             })
             .catch(err=>{
@@ -32,6 +32,8 @@ const Form=()=>{
     return(
         <>
             <form onSubmit={addProduct}>
+                <h1>New Product</h1>
+                <hr />
                 <div className="form-group">
                     <label htmlFor="title">Title:</label>
                     <input className="form-control" onChange={(e)=>setTitle(e.target.value)} type="text" name="title" value={title}/>
